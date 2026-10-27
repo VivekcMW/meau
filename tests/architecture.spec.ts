@@ -49,7 +49,7 @@ test('every persona and app has reciprocal highlights, aligned features and a de
   const people = page.locator('.arch-people');
   const apps = page.locator('.arch-apps');
   await expect(people.locator('[data-persona]')).toHaveCount(15);
-  await expect(apps.locator('[data-app]')).toHaveCount(17);
+  await expect(apps.locator('[data-app]')).toHaveCount(18);
   for (const persona of personas) {
     await people.locator(`[data-persona="${persona.id}"]`).click();
     await expect(people.locator(`[data-persona="${persona.id}"]`)).toHaveAttribute('aria-pressed', 'true');
@@ -96,7 +96,7 @@ test('architecture selection errors are explicit and the full-platform control c
   for (const query of ['app=unknown', 'persona=unknown', 'app=planner&persona=crew', 'app=', 'persona=', 'journey=unknown', 'journey=', 'area=unknown', 'area=', 'area=supply&app=inventory', 'area=supply&persona=ops']) {
     await page.goto(`/#/architecture?${query}`);
     await expect(page.getByRole('alert')).toContainText('selection is not recognised');
-    await expect(page.locator('.arch-app-card')).toHaveCount(17);
+    await expect(page.locator('.arch-app-card')).toHaveCount(18);
     await page.getByRole('button', { name: 'Show full platform', exact: true }).click();
     await expect(page.getByRole('alert')).toHaveCount(0);
     await expect(page).toHaveURL(/#\/architecture$/);
@@ -118,7 +118,7 @@ test('architecture and the navbar CTA fit desktop, tablet and small phones', asy
     }
     await expectNoOverflow(page);
     await page.locator('.arch-people [data-persona="admin"]').click();
-    await expect(page.locator('.arch-persona-features > div')).toHaveCount(17);
+    await expect(page.locator('.arch-persona-features > div')).toHaveCount(18);
     await expectNoOverflow(page);
     await page.locator('.arch-apps [data-app="agents"] > button').click();
     await expect(page.locator('.arch-connected-people > button')).toHaveCount(15);

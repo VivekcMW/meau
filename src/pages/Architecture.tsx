@@ -99,10 +99,10 @@ export function ArchitecturePage() {
           <h1 id="architecture-title">Different roles.<br />One connected world.</h1>
           <p>See who does what, which apps they use, and how the work moves forward.</p>
         </div>
-        <div className="arch-hero-diagram" aria-label="15 personas connect through 17 apps to one shared data core">
-          <div><span className="arch-diagram-icon"><Users size={23} /></span><strong>15</strong><span>human personas</span></div>
+        <div className="arch-hero-diagram" aria-label={`${personas.length} personas connect through ${architectureApps.length} apps to one shared data core`}>
+          <div><span className="arch-diagram-icon"><Users size={23} /></span><strong>{personas.length}</strong><span>human personas</span></div>
           <ArrowRight className="arch-diagram-arrow" size={19} aria-hidden="true" />
-          <div><span className="arch-diagram-icon arch-coral-icon"><Layers size={23} /></span><strong>17</strong><span>connected apps</span></div>
+          <div><span className="arch-diagram-icon arch-coral-icon"><Layers size={23} /></span><strong>{architectureApps.length}</strong><span>connected apps</span></div>
           <ArrowRight className="arch-diagram-arrow" size={19} aria-hidden="true" />
           <div><span className="arch-diagram-icon"><Database size={23} /></span><strong>01</strong><span>shared data core</span></div>
         </div>
@@ -124,7 +124,7 @@ export function ArchitecturePage() {
 
         <div className="arch-atlas">
           <section className="arch-people panel" id="architecture-people" aria-labelledby="arch-people-title">
-            <div className="arch-column-title"><Users size={17} /><h3 id="arch-people-title">The people</h3><span>{app || area ? `${relatedPeople.length} connected` : '15 personas'}</span></div>
+            <div className="arch-column-title"><Users size={17} /><h3 id="arch-people-title">The people</h3><span>{app || area ? `${relatedPeople.length} connected` : `${personas.length} personas`}</span></div>
             <p className="arch-column-note">Select a persona to trace their apps.</p>
             {personaGroups.map(group => <div className="arch-persona-group" key={group.name}>
               <h4>{group.name}</h4>
@@ -143,7 +143,7 @@ export function ArchitecturePage() {
           </section>
 
           <section className="arch-apps" id="architecture-apps" aria-labelledby="arch-apps-title">
-            <div className="arch-column-title"><Layers size={17} /><h3 id="arch-apps-title">The applications</h3><span>{persona || area ? `${relatedApps.length} connected` : '17 apps'}</span></div>
+            <div className="arch-column-title"><Layers size={17} /><h3 id="arch-apps-title">The applications</h3><span>{persona || area ? `${relatedApps.length} connected` : `${architectureApps.length} apps`}</span></div>
             <p className="arch-column-note">Select an app to reveal its people and workflow.</p>
             <div className="arch-app-groups">{appGroups.map(group => <section className={`arch-app-group arch-group-${group.id}`} key={group.id} aria-label={group.name}>
               <div className="arch-group-heading"><span /><h4>{group.name}</h4></div>
@@ -252,7 +252,7 @@ function FocusPanel({ area, persona, app, workflows, onSelectApp, onSelectPerson
 function Foundation() {
   const layers = [
     { title: 'People & experience', icon: Users, text: 'One shell composes navigation and the next best action for each persona.', items: ['15 human personas', 'Overview', 'My tasks'] },
-    { title: 'Application layer', icon: Layers, text: '17 modular apps cover the OOH, DOOH and programmatic workflow.', items: appGroups.map(group => group.name) },
+    { title: 'Application layer', icon: Layers, text: `${architectureApps.length} modular apps cover the OOH, DOOH and programmatic workflow.`, items: appGroups.map(group => group.name) },
     { title: 'Workflow & handoffs', icon: GitBranch, text: 'The local action engine enforces the next step, owner and exit conditions.', items: ['Approve', 'Offer', 'Sign', 'Review', 'Launch', 'Prove', 'Settle'] },
     { title: 'Shared capabilities', icon: ShieldCheck, text: 'Reusable controls and policies keep every experience consistent.', items: ['Role checks', 'Policies', 'Notifications', 'Audit timeline', 'Local assets'] },
     { title: 'Unified object model', icon: Fingerprint, text: 'The same record moves between apps instead of being copied into a silo.', items: ['Frame', 'Plan', 'Order', 'Creative', 'Delivery', 'Invoice'] },

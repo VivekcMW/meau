@@ -1,7 +1,7 @@
 import { getPersona, personas } from './config';
 import type { ModuleId, PersonaId } from './model';
 
-export const architectureAppIds = ['measure', 'inventory', 'planner', 'campaigns', 'reports', 'admin', 'agents', 'ssp', 'schedule', 'field', 'marketplace', 'creative', 'finance', 'developer', 'dsp', 'attribution', 'data'] as const satisfies readonly ModuleId[];
+export const architectureAppIds = ['measure', 'inventory', 'planner', 'deals', 'campaigns', 'reports', 'admin', 'agents', 'ssp', 'schedule', 'field', 'marketplace', 'creative', 'finance', 'developer', 'dsp', 'attribution', 'data'] as const satisfies readonly ModuleId[];
 export type ArchitectureAppId = (typeof architectureAppIds)[number];
 export type AppGroupId = 'demand' | 'supply' | 'operations' | 'insights' | 'platform' | 'core';
 export interface AppFeature { label: string; personas?: readonly PersonaId[] }
@@ -24,6 +24,12 @@ export const appGroups: { id: AppGroupId; name: string; description: string }[] 
 export const architectureApps: ArchitectureApp[] = [
   { id: 'planner', code: 'PLN', group: 'demand', purpose: 'A brief becomes a priced, audience-led plan.', primary: ['planner'], features: [
     { label: 'Assisted brief and three plan alternatives' }, { label: 'Market, budget and audience-context selection' }, { label: 'Curated places, forecast and shared pricing' },
+  ] },
+  { id: 'deals', code: 'DIR', group: 'demand', purpose: 'Buy direct from media owners, with agreement rates, holds, counters and IOs in one desk.', primary: ['planner', 'brand', 'sales'], features: [
+    { label: 'Three-tap brief with places and agreement rates applied' },
+    { label: 'Soft-hold countdowns, option ranking and negotiation history' },
+    { label: 'Compare owners, counter, swap places and accept', personas: ['planner', 'brand'] },
+    { label: 'Answer RFPs, meet counters, extend holds and sign IOs', personas: ['sales'] },
   ] },
   { id: 'campaigns', code: 'PRO', group: 'demand', purpose: 'One campaign record connects proposals, orders and handoffs.', primary: ['planner', 'sales', 'approver'], features: [
     { label: 'Shared campaign timeline and next best action' },
@@ -121,7 +127,7 @@ export const architectureWorkflows: ArchitectureWorkflow[] = [
   { id: 'direct', code: 'J-01', name: 'Brief to paid invoice', description: 'A direct campaign, with every owner and handoff connected.', steps: [
     { title: 'Build the plan', app: 'planner', personas: ['planner'], output: 'Brief, three alternatives, curated frames and forecast.' },
     { title: 'Approve the budget', app: 'campaigns', personas: ['approver'], output: 'Required only above the configured approval limit.' },
-    { title: 'Agree owner offers', app: 'campaigns', personas: ['planner', 'sales'], output: 'Separate RFPs, soft holds and responses for each owner.' },
+    { title: 'Negotiate with owners', app: 'deals', personas: ['planner', 'sales'], output: 'Owner RFPs at agreement rates, counters, swaps and 72-hour soft holds.' },
     { title: 'Sign the booking', app: 'campaigns', personas: ['planner', 'sales'], output: 'Buyer and each media owner sign their demo IOs.' },
     { title: 'Review the creative', app: 'creative', personas: ['reviewer'], output: 'Buyer assets are attached in Campaigns; human review approves or returns feedback.' },
     { title: 'Launch the flight', app: 'schedule', personas: ['ops'], output: 'Approved assets and available inventory enter a simulated schedule.' },
@@ -156,6 +162,15 @@ export const architectureWorkflows: ArchitectureWorkflow[] = [
     { title: 'Resolve exceptions', app: 'finance', personas: ['finance'], output: 'Align records to Measure and credit undelivered media.' },
     { title: 'Issue and settle', app: 'finance', personas: ['finance'], output: 'Demo invoice, simulated payment and illustrative owner-pool view.' },
   ] },
+  { id: 'brand-direct', code: 'BRAND', name: 'Brand buys direct', description: 'A brand negotiates with media owners itself, no agency in the middle.', steps: [
+    { title: 'Start a direct deal', app: 'deals', personas: ['brand'], output: 'Market, budget and goal. Places, agreement rates and owner RFPs are set up for you.' },
+    { title: 'Send a proposal', app: 'deals', personas: ['sales'], output: 'Each owner replies at its agreement rate and can suggest better-value places.' },
+    { title: 'Negotiate the terms', app: 'deals', personas: ['brand', 'sales'], output: 'Counter, meet halfway, swap places or extend the soft hold. Every move is logged.' },
+    { title: 'Sign insertion orders', app: 'deals', personas: ['brand', 'sales'], output: 'Accepting every owner generates IOs; each side signs its demo copy.' },
+    { title: 'Approve the creative', app: 'creative', personas: ['reviewer'], output: 'The brand attaches creative in Campaigns; a human reviewer approves it.' },
+    { title: 'Launch the flight', app: 'schedule', personas: ['ops'], output: 'Approved assets and held places enter a simulated schedule.' },
+    { title: 'See the results', app: 'reports', personas: ['brand'], output: 'Negotiated cost, delivery and proof in one report.' },
+  ] },
   { id: 'outcomes', code: 'INSIGHT', name: 'Audience to outcomes', description: 'Carry the audience context from a plan into the results.', steps: [
     { title: 'Define the audience', app: 'data', personas: ['brand', 'planner', 'trader'], output: 'A market and environment identify the matching places.' },
     { title: 'Create the plan', app: 'planner', personas: ['planner'], output: 'The selected audience context constrains inventory in each plan alternative.' },
@@ -172,7 +187,7 @@ export const architectureWorkflows: ArchitectureWorkflow[] = [
 ];
 export const defaultPersonaWorkflow: Record<PersonaId, string> = {
   planner: 'direct', sales: 'direct', ops: 'posting', trader: 'guaranteed', finance: 'settlement',
-  advertiser: 'self-serve', admin: 'platform', brand: 'outcomes', crew: 'posting', approver: 'direct',
+  advertiser: 'self-serve', admin: 'platform', brand: 'brand-direct', crew: 'posting', approver: 'direct',
   reviewer: 'direct', yield: 'guaranteed', executive: 'platform', auditor: 'platform', developer: 'platform',
 };
 
@@ -191,7 +206,7 @@ export interface EcosystemArea {
 export const ecosystemAreas: readonly EcosystemArea[] = [
   { id: 'demand', name: 'Brands & agencies', action: 'Create demand', purpose: 'Turn a business goal into an audience-led booking.',
     receives: 'Audience context & available places', shares: 'Brief, plan & booking',
-    apps: ['planner', 'campaigns', 'marketplace', 'dsp'], people: ['brand', 'planner', 'trader', 'advertiser', 'approver'], workflow: 'direct' },
+    apps: ['planner', 'deals', 'campaigns', 'marketplace', 'dsp'], people: ['brand', 'planner', 'trader', 'advertiser', 'approver'], workflow: 'direct' },
   { id: 'supply', name: 'Media owners & places', action: 'Connect the places', purpose: 'Make digital screens and static locations available to buyers.',
     receives: 'Audience-led demand', shares: 'Availability & owner offers',
     apps: ['inventory', 'ssp'], people: ['sales', 'yield', 'ops', 'executive'], workflow: 'guaranteed' },

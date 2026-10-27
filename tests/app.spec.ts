@@ -153,7 +153,7 @@ test('all modules render without page overflow on desktop, tablet and narrow pho
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await asAdmin(page);
-  const routes = ['', 'planner', 'campaigns', 'inventory', 'marketplace', 'creative', 'schedule', 'field', 'finance', 'ssp', 'dsp', 'reports', 'measure', 'data', 'attribution', 'agents', 'admin', 'developer', 'tasks', 'campaigns/AU-1001'];
+  const routes = ['', 'planner', 'deals', 'campaigns', 'inventory', 'marketplace', 'creative', 'schedule', 'field', 'finance', 'ssp', 'dsp', 'reports', 'measure', 'data', 'attribution', 'agents', 'admin', 'developer', 'tasks', 'campaigns/AU-1001', 'campaigns/AU-1009', 'deals?deal=AU-1005'];
   for (const width of [1440, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     for (const route of routes) {
@@ -184,7 +184,7 @@ test('overview meets automated WCAG AA checks', async ({ page }) => {
   const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   expect(result.violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => ({ target: n.target, reason: n.failureSummary })) }))).toEqual([]);
 });
-for (const route of ['planner', 'campaigns', 'inventory', 'marketplace', 'creative', 'schedule', 'field', 'finance', 'ssp', 'dsp', 'reports', 'measure', 'data', 'attribution', 'agents', 'admin', 'developer', 'tasks', 'campaigns/AU-1001']) {
+for (const route of ['planner', 'deals', 'deals?deal=AU-1009', 'campaigns', 'inventory', 'marketplace', 'creative', 'schedule', 'field', 'finance', 'ssp', 'dsp', 'reports', 'measure', 'data', 'attribution', 'agents', 'admin', 'developer', 'tasks', 'campaigns/AU-1001', 'campaigns/AU-1005']) {
   test(`${route} meets automated WCAG AA checks`, async ({ page }) => {
     await asAdmin(page);
     await page.goto(`/#/${route}`);
@@ -248,7 +248,7 @@ test('audience context reaches planner inventory and confirmed reset restores fi
   await expect(page.getByRole('heading', { name: 'Overview' })).toBeVisible();
   await page.goto('/#/campaigns');
   await expect(page.getByRole('link', { name: /Morning commuters campaign/ })).toHaveCount(0);
-  await expect(page.locator('.campaign-table tbody tr')).toHaveCount(8);
+  await expect(page.locator('.campaign-table tbody tr')).toHaveCount(9);
 });
 test('mobile navigation and context dialog meet automated accessibility checks', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });

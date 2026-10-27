@@ -31,9 +31,10 @@ export function Badge({ children, tone = 'neutral', dot = false }: { children: R
   return <span className={`badge badge-${tone}`}>{dot && <span className="status-dot" />}{children}</span>;
 }
 export function Status({ value }: { value: string }) {
-  const tone = ['Live', 'Approved', 'Paid', 'Reconciled', 'Available', 'Active', 'Matched', 'Verified'].includes(value) ? 'green'
+  const tone = ['Live', 'Approved', 'Paid', 'Reconciled', 'Available', 'Active', 'Matched', 'Verified', 'Accepted'].includes(value) ? 'green'
     : ['In review', 'Awaiting offers', 'Ready to sign', 'Booked', 'Pending', 'Held'].includes(value) ? 'amber'
-      : ['Rejected', 'Exception', 'Missing proof', 'Blocked'].includes(value) ? 'coral' : 'neutral';
+      : ['Proposed', 'Countered'].includes(value) ? 'blue'
+        : ['Rejected', 'Exception', 'Missing proof', 'Blocked'].includes(value) ? 'coral' : 'neutral';
   return <Badge tone={tone} dot>{value}</Badge>;
 }
 export function MethodBadge({ method = 'Measured' }: { method?: Method }) {

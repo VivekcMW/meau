@@ -5,7 +5,7 @@ export type MarketKey = (typeof marketKeys)[number];
 export type MarketFilter = MarketKey | 'All';
 export const environments = ['Roadside', 'Retail', 'Transit', 'Street'] as const;
 export type Method = 'Measured' | 'Fused' | 'Modelled';
-export type ModuleId = 'home' | 'planner' | 'campaigns' | 'inventory' | 'marketplace' | 'measure' | 'creative' | 'schedule' | 'field' | 'ssp' | 'dsp' | 'reports' | 'finance' | 'attribution' | 'data' | 'agents' | 'admin' | 'developer' | 'tasks';
+export type ModuleId = 'home' | 'planner' | 'deals' | 'campaigns' | 'inventory' | 'marketplace' | 'measure' | 'creative' | 'schedule' | 'field' | 'ssp' | 'dsp' | 'reports' | 'finance' | 'attribution' | 'data' | 'agents' | 'admin' | 'developer' | 'tasks';
 export type PersonaId = 'planner' | 'sales' | 'ops' | 'trader' | 'finance' | 'advertiser' | 'admin' | 'brand' | 'crew' | 'approver' | 'reviewer' | 'yield' | 'executive' | 'auditor' | 'developer';
 export interface Persona {
   id: PersonaId;
@@ -53,7 +53,24 @@ export const stages = ['Draft', 'In review', 'Awaiting offers', 'Ready to sign',
 export type Stage = (typeof stages)[number];
 export const proofSchema = z.object({ frameId: z.string(), distance: z.number(), recordedAt: z.string(), assetId: z.string().optional() });
 export const eventSchema = z.object({ id: z.string(), at: z.string(), actor: z.string(), text: z.string() });
-export const offerSchema = z.object({ owner: z.string(), status: z.enum(['Pending', 'Accepted', 'Countered']), adjustment: z.number() });
+export const offerStatuses = ['Pending', 'Proposed', 'Countered', 'Accepted'] as const;
+export const swapSchema = z.object({ frameId: z.string(), replaces: z.string(), reason: z.string() });
+export const dealNoteSchema = z.object({ at: z.string(), side: z.enum(['buyer', 'owner']), text: z.string() });
+// Pending: owner to propose · Proposed: buyer to decide · Countered: owner to answer the buyer · Accepted: agreed terms.
+export const offerSchema = z.object({
+  owner: z.string(),
+  status: z.enum(offerStatuses),
+  adjustment: z.number(),
+  discount: z.number().min(0).max(.5).default(0),
+  ask: z.number().min(0).max(.5).optional(),
+  agreement: z.string().optional(),
+  heldAt: z.string().optional(),
+  holdUntil: z.string().optional(),
+  extensionRequested: z.boolean().default(false),
+  alternatives: z.array(swapSchema).default([]),
+  history: z.array(dealNoteSchema).default([]),
+});
+export type Offer = z.infer<typeof offerSchema>;
 export const campaignSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -67,6 +84,7 @@ export const campaignSchema = z.object({
   frameIds: z.array(z.string()),
   stage: z.enum(stages),
   channel: z.enum(['Direct', 'Self-serve', 'Programmatic']),
+  buyer: z.enum(['planner', 'brand']).default('planner'),
   dealStatus: z.enum(['Offered', 'Accepted']).optional(),
   option: z.enum(['Balanced', 'Reach', 'Efficient']),
   version: z.number().int(),
@@ -101,6 +119,7 @@ export interface Brief {
 }
 export const workspaceSchema = z.object({
   version: z.literal(1),
+  fixtureVersion: z.number().int().default(1),
   campaigns: z.array(campaignSchema),
   persona: z.enum(['planner', 'sales', 'ops', 'trader', 'finance', 'advertiser', 'admin', 'brand', 'crew', 'approver', 'reviewer', 'yield', 'executive', 'auditor', 'developer']),
   market: z.enum(['All', ...marketKeys]),
@@ -124,6 +143,12 @@ export type Action =
   | { type: 'refresh' }
   | { type: 'offer'; owner: string; counter: boolean }
   | { type: 'accept' }
+  | { type: 'accept-offer'; owner: string }
+  | { type: 'counter'; owner: string; discount: number }
+  | { type: 'respond'; owner: string; decision: 'accept' | 'split' | 'decline' }
+  | { type: 'swap'; owner: string; frameId: string }
+  | { type: 'extend-request'; owner: string }
+  | { type: 'extend'; owner: string }
   | { type: 'accept-deal' }
   | { type: 'sign'; side: 'buyer' | 'seller'; owner?: string }
   | { type: 'creative'; assetId?: string }

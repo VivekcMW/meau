@@ -69,7 +69,7 @@ test('additional role tools are discoverable and the app directory explains role
   await expect(more).toHaveAttribute('open', '');
   await page.locator('.sidebar').getByRole('button', { name: 'All apps', exact: false }).click();
   await expect(page.getByRole('dialog', { name: 'All apps', exact: true })).toBeVisible();
-  await expect(page.locator('.app-tile')).toHaveCount(17);
+  await expect(page.locator('.app-tile')).toHaveCount(18);
   const finance = page.locator('.app-tile').filter({ has: page.getByText('Finance', { exact: true }) });
   await expect(finance.locator('p')).toContainText('delivery evidence');
   await expect(finance.locator('small')).toHaveText('Preview as Ana');

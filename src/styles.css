@@ -493,6 +493,9 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--green); width:
 .option-metrics { display: flex; justify-content: space-between; gap: 15px; }
 .option-metrics strong { display: block; font-weight: 500; font-size: 24px; letter-spacing: -.8px; }
 .option-metrics span { display: block; font-size: 9px; color: #8c9879; margin: 4px 0; }
+.route-mix { display: flex; align-items: flex-start; gap: 8px; margin: 16px 0 0; padding: 9px 11px; border-radius: 8px; background: #f2f4ec; color: #3d4a34; font-size: 12px; line-height: 1.45; }
+.route-mix svg { flex: none; margin-top: 2px; }
+.route-mix b { font-weight: 600; }
 .option-price { padding: 18px 0; border-top: 1px solid #edf0e5; margin-top: 18px; }
 .option-price span { font-size: 21px; font-weight: 500; letter-spacing: -.6px; display: block; }
 .option-price small { display: block; font-size: 9px; margin-top: 4px; color: #9aa688; }
@@ -589,7 +592,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--green); width:
 .plan-option-buttons button.selected { background: #e9efdd; color: #567543; }
 .highlight-row td { background: #f0f5e7; }
 .owner-offer { display: flex; align-items: center; gap: 17px; padding: 22px 0; border-top: 1px solid #edf1e3; }
-.owner-logo { background: #e8eddc; color: #708c53; width: 38px; height: 38px; border: 1px solid #dce5cd; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+.owner-logo { background: #e8eddc; color: #34502a; font-weight: 600; width: 38px; height: 38px; border: 1px solid #dce5cd; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
 .owner-offer > div { flex: 1; }
 .owner-offer h3 { font-size: 12px; }
 .owner-offer p { color: #96a183; font-size: 9px; margin-top: 4px; }

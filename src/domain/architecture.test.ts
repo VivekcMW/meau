@@ -3,9 +3,9 @@ import { moduleNames, personas } from './config';
 import { appGroups, appsForPersona, architectureAppIds, architectureApps, architectureWorkflows, defaultPersonaWorkflow, ecosystemAreas, ecosystemLoop, featuresForPersona, personaGroups, personasForApp } from './architecture';
 
 describe('architecture catalog', () => {
-  it('maps exactly the 17 existing apps, excluding shared overview and task surfaces', () => {
-    expect(architectureApps).toHaveLength(17);
-    expect(new Set(architectureApps.map(app => app.id)).size).toBe(17);
+  it('maps exactly the 18 existing apps, excluding shared overview and task surfaces', () => {
+    expect(architectureApps).toHaveLength(18);
+    expect(new Set(architectureApps.map(app => app.id)).size).toBe(18);
     expect([...architectureAppIds].sort()).toEqual(Object.keys(moduleNames).filter(id => !['home', 'tasks'].includes(id)).sort());
     expect(architectureApps.map(app => app.id).sort()).toEqual([...architectureAppIds].sort());
     expect(architectureApps.every(app => appGroups.some(group => group.id === app.group))).toBe(true);

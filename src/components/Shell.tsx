@@ -1,4 +1,4 @@
-import { Activity, ArrowRight, ArrowUpRight, BarChart3, Bell, Blocks, Building2, CalendarDays, Check, CheckCheck, ChevronDown, ChevronRight, CircleHelp, Code2, Command, Compass, CreditCard, Globe2, Image, LayoutDashboard, Layers, ListTodo, Menu, MessageSquare, MoreHorizontal, Network, PanelLeftClose, PanelLeftOpen, Search, Send, Settings2, ShieldCheck, Sparkles, Target, TrendingUp, Truck, Users, X } from 'lucide-react';
+import { Activity, ArrowRight, ArrowUpRight, BarChart3, Bell, Blocks, Building2, CalendarDays, Check, CheckCheck, ChevronDown, ChevronRight, CircleHelp, Code2, Command, Compass, CreditCard, Globe2, Handshake, Image, LayoutDashboard, Layers, ListTodo, Menu, MessageSquare, MoreHorizontal, Network, PanelLeftClose, PanelLeftOpen, Search, Send, Settings2, ShieldCheck, Sparkles, Target, TrendingUp, Truck, Users, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -14,7 +14,7 @@ import { Onboarding, TourHelp } from './Onboarding';
 import { useTourStore } from '../domain/tour-store';
 
 export const moduleIcons: Record<ModuleId, LucideIcon> = {
-  home: LayoutDashboard, planner: Compass, campaigns: Layers, inventory: Globe2, marketplace: Building2, measure: Activity,
+  home: LayoutDashboard, planner: Compass, deals: Handshake, campaigns: Layers, inventory: Globe2, marketplace: Building2, measure: Activity,
   creative: Image, schedule: CalendarDays, field: Truck, ssp: TrendingUp, dsp: Target, reports: BarChart3, finance: CreditCard,
   attribution: Target, data: Users, agents: Sparkles, admin: Settings2, developer: Code2, tasks: ListTodo,
 };
@@ -62,7 +62,7 @@ export function Shell() {
         <summary aria-label="More tools" title="More tools"><MoreHorizontal className="more-tools-icon" size={19} /><span>More tools</span><ChevronDown size={14} /></summary>
         {roleNav.slice(6).map(id => { const Icon = moduleIcons[id]; return <NavLink key={id} to={modulePath(id)} aria-label={moduleNames[id]} title={moduleNames[id]} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}><Icon size={18} /><span>{moduleNames[id]}</span></NavLink>; })}
       </details>}
-      <button className="nav-item" aria-label="All apps" title="All apps" onClick={() => setAppsOpen(true)}><Blocks size={19} /><span>All apps</span><span className="nav-new">17</span></button>
+      <button className="nav-item" aria-label="All apps" title="All apps" onClick={() => setAppsOpen(true)}><Blocks size={19} /><span>All apps</span><span className="nav-new">{architectureApps.length}</span></button>
     </nav>
     <div className="sidebar-bottom">
       <button className="nav-item" aria-label="Workflow assistant" title="Workflow assistant" onClick={() => setAssistantOpen(true)}><MessageSquare size={18} /><span>Workflow assistant</span></button>

@@ -9,6 +9,7 @@ import { useStore } from './domain/store';
 import { HomePage } from './pages/Home';
 
 const Planner = lazy(() => import('./pages/Planner').then(m => ({ default: m.PlannerPage })));
+const Deals = lazy(() => import('./pages/Deals').then(m => ({ default: m.DealsPage })));
 const Campaigns = lazy(() => import('./pages/Campaigns').then(m => ({ default: m.CampaignsPage })));
 const CampaignDetail = lazy(() => import('./pages/Campaigns').then(m => ({ default: m.CampaignDetailPage })));
 const Share = lazy(() => import('./pages/Campaigns').then(m => ({ default: m.SharePage })));
@@ -50,6 +51,7 @@ function AppRoutes() {
     <Route path="/architecture" element={<Architecture />} />
     <Route element={<Shell />}><Route index element={<HomePage />} />
       <Route path="/planner" element={protectedPage('planner', <Planner />)} />
+      <Route path="/deals" element={protectedPage('deals', <Deals />)} />
       <Route path="/campaigns" element={protectedPage('campaigns', <Campaigns />)} />
       <Route path="/campaigns/:id" element={protectedPage('campaigns', <CampaignDetail />)} />
       <Route path="/inventory" element={protectedPage('inventory', <Inventory />)} />

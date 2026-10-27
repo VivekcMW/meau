@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { seedWorkspace } from './fixtures';
+import { seedWorkspace, upgradeWorkspace } from './fixtures';
 import { createCampaign, transition } from './engine';
 import { workspaceSchema } from './model';
 import type { Action, Brief, Campaign, Workspace } from './model';
@@ -20,7 +20,11 @@ let initial = seedWorkspace();
 let loadError: string | null = null;
 try {
   const persisted = localStorage.getItem(STORAGE_KEY);
-  if (persisted) initial = workspaceSchema.parse(JSON.parse(persisted));
+  if (persisted) {
+    const saved = workspaceSchema.parse(JSON.parse(persisted));
+    initial = upgradeWorkspace(saved);
+    if (initial !== saved) localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
+  }
 } catch (error) {
   console.error('Workspace recovery failed', error);
   loadError = 'Saved workspace could not be loaded. The demo seed is shown; reset to replace the saved data.';

@@ -23,6 +23,7 @@ Deploy the generated `dist/` directory to a static host. Hash-based routes work 
 ## Explore the connected workflows
 
 - **Direct campaign:** Overview -> Planner -> choose a plan -> follow the next-action banner. The banner guides budget approval, both media owners' offers and signatures, creative review, launch, simulated delivery, posting proof, reconciliation, invoice and payment.
+- **Direct deals (buyer direct):** Direct deals -> Start a direct deal, or open a planned campaign's **Negotiate in Direct deals** link. Follow the banner between the buyer and each media owner until insertion orders are signed.
 - **Self-serve:** All apps -> Marketplace. Pick available locations, review the booking and confirm a clearly labelled simulated payment. No money moves.
 - **Programmatic guaranteed:** SSP -> Create guaranteed deal -> continue as the trader -> accept -> review creative -> launch.
 - **Field proof:** Booked static faces become field jobs automatically. Simulated GPS distance must be within 50 metres and the proof timestamp must fall inside the booking window. Completed proof appears in the buyer report.
@@ -40,9 +41,23 @@ Use the avatar to preview 15 personas and two media-owner contexts. All apps exp
 - Use the sidebar's **Collapse sidebar / Expand sidebar** control for an icon-only workspace with labelled tooltips. More tools, role switching and Help stay available; mobile keeps its full-label navigation drawer. Selected navigation uses a soft background without a left-side stroke.
 - Counts and delivered audience on Overview cover the full demo flights. No artificial weekly/monthly multiplier is applied.
 
+## Direct deals
+
+Direct deals is the buyer-direct desk. An agency or brand negotiates directly with media owners in one shared record. Nobody sends emails or spreadsheets back and forth.
+
+- **Start in three choices:** market, budget and goal. Places, the buyer's agreement rates, soft holds and one RFP per media owner are prepared automatically. Budgets above the approval limit go to the budget approver first. Brands can buy directly without an agency.
+- **Owner proposals:** Owner sales sees an inbox of RFPs. **Send proposal** is pre-filled with the agreement rate or the matching volume tier, and owners can suggest better-value alternative places.
+- **Negotiate:** The buyer can **Accept**, **Counter** (pre-filled 3 points above the offer) or **Swap** in an owner's suggested place. Owners can **Accept** or **Meet halfway**. Each move updates the price, the savings against rate card and the per-owner history.
+- **Soft holds and option ranks:** Every offer shows the hold expiry and whether the buyer holds 1st or 2nd option. Buyers can **Ask for 48h more**; owners can **Extend hold 48h**.
+- **Insertion orders:** Once every owner accepts, insertion orders are generated. Each side signs its demo copy and the deal is booked. It then continues through the normal creative, launch, proof and settlement workflow.
+- **Routes everywhere:** Planner options show the best buying mix, for example "2 direct · 3 marketplace · 1 programmatic". The campaign plan shows a **Best route** column for each place.
+- Budget approvers can read deals but cannot change them. The layout adapts to the space available, so it stays usable next to the tour guide or assistant.
+
+Agreement rates, holds and IOs are simulated with demo data. Nothing is sent to a media owner and no contract is created.
+
 ## Guided first visit
 
-The first visit to **Overview** offers two optional paths: **By my role** (15 personas) or **By an app** (17 tools). A preview explains the selected role, the demo identity and the short walkthrough before anything starts. App tours retain your current role when it has access; otherwise the preview names the role it will switch to.
+The first visit to **Overview** offers two optional paths: **By my role** (15 personas) or **By an app** (18 tools). A preview explains the selected role, the demo identity and the short walkthrough before anything starts. App tours retain your current role when it has access; otherwise the preview names the role it will switch to.
 
 - Role tours connect assigned work, relevant apps and the next responsible person. App tours explain three concrete parts of a tool.
 - The guide sits alongside the workspace on desktop and below it on smaller screens. The highlighted section stays in the scrolling workspace; the footer never overlaps it.
@@ -61,12 +76,12 @@ Use **Architecture** in the navbar, or open `/#/architecture` directly, for an i
 - Area selections also highlight the detailed app/persona atlas and workflow steps. Follow the audience-to-results feedback loop, open a connected app/persona explanation, or choose **Follow the handoffs**. The map is inside the existing application; there is no separate design file or service.
 - Choose a persona to highlight their connected apps, role-aligned features and workflow steps.
 - Choose an app to highlight the people who use it, its primary owners and the connected handoffs.
-- Trace seven journeys: direct, self-serve, guaranteed deals, static posting, reconciliation, audience-to-outcomes, and platform assurance.
+- Trace eight journeys: direct, self-serve, guaranteed deals, static posting, reconciliation, brand buys direct, audience-to-outcomes, and platform assurance.
 - Inspect the seven conceptual architecture layers, shared objects, market configuration and simulated integration boundary.
 - **Show full platform** or the map's central core clears the selection. Query links such as `/#/architecture?area=supply`, `/#/architecture?persona=crew` and `/#/architecture?app=finance` preserve selections on refresh.
 - On smaller screens, selections bring their explanation into view; the sticky Map / People / Apps / Details / Workflows navigation keeps each part within reach.
 
-The navbar carries the current app into the explorer and offers a return to the original workspace route. Exploring never changes the saved persona or campaign data. **Open app in workspace** uses the existing persona and route guards; architecture visibility is explanatory, not a new permission grant. The 17-app count excludes the shared Overview and My tasks surfaces.
+The navbar carries the current app into the explorer and offers a return to the original workspace route. Exploring never changes the saved persona or campaign data. **Open app in workspace** uses the existing persona and route guards; architecture visibility is explanatory, not a new permission grant. The 18-app count excludes the shared Overview and My tasks surfaces.
 
 Ecosystem areas group the work, not access rights; people can contribute across areas. Handoffs and the results-to-planning loop are conceptual explanations using demo data, not live integrations or automatic optimisation.
 

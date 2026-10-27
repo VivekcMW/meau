@@ -27,6 +27,11 @@ const appStops: Record<ArchitectureAppId, readonly AppStop[]> = {
     { target: '.brief-inline-settings', title: 'Check the commercial details', description: 'Review the city, budget and flight dates. Fine-tune opens the campaign name and dates before you compare estimated media cost and forecast audience.', takeaway: 'Confirm the market and dates before choosing a plan.' },
     { target: '.plan-options-section, .draft-grid', title: 'Compare, then keep the plan connected', description: 'Find my audience reveals three options with actual locations. Choosing one creates a draft campaign. Existing drafts below reopen the same booking and approval workflow.', takeaway: 'Your next move: write a brief or reopen a draft.' },
   ],
+  deals: [
+    { target: '.page-heading', title: 'Buy direct from media owners', description: 'Direct deals is where buyers and owners agree terms. Start a deal with a market, budget and goal; the places, agreement rates and owner requests are prepared for you.', takeaway: 'One request becomes a separate negotiation with each owner.' },
+    { target: '.deal-list-panel, .empty-state', title: 'See whose move it is', description: 'Each deal shows every owner, its status and who acts next. Deals waiting on you rise to the top, and soft holds count down so nothing lapses unnoticed.', takeaway: 'Start with the deals marked as your move.' },
+    { target: '.deal-owner-grid, .deal-detail, .empty-state', title: 'Negotiate one owner at a time', description: 'Compare price and cost per 1,000 by owner. Accept, counter, swap a place or ask for more hold time. When every owner agrees, insertion orders are generated for signature.', takeaway: 'Your next move: open a deal and review each owner.' },
+  ],
   campaigns: [
     { target: '.page-heading', title: 'One record for the whole campaign', description: 'Campaigns carries the plan, owner offers, creative, delivery and financial evidence together. Open a campaign to see its current stage and responsible person.', takeaway: 'You do not need a separate record for every team.' },
     { target: '.table-toolbar', title: 'Find the work that needs attention', description: 'Use the status filters and search to find a campaign. Table and card views show the same records, scoped to your demo role and selected market.', takeaway: 'Start with a status or a campaign name.' },
@@ -110,9 +115,9 @@ const appStops: Record<ArchitectureAppId, readonly AppStop[]> = {
 };
 
 const personaApps: Record<PersonaId, readonly ArchitectureAppId[]> = {
-  planner: ['planner', 'campaigns', 'reports'], brand: ['data', 'reports', 'attribution'],
+  planner: ['planner', 'deals', 'reports'], brand: ['deals', 'data', 'reports'],
   advertiser: ['marketplace', 'creative', 'reports'], trader: ['dsp', 'campaigns', 'reports'],
-  approver: ['campaigns', 'reports'], sales: ['inventory', 'campaigns', 'reports'],
+  approver: ['campaigns', 'reports'], sales: ['deals', 'inventory', 'campaigns'],
   yield: ['inventory', 'ssp', 'reports'], executive: ['measure', 'reports'],
   ops: ['schedule', 'field', 'creative'], crew: ['field', 'campaigns'],
   reviewer: ['creative', 'campaigns'], finance: ['finance', 'reports'],
