@@ -406,3 +406,40 @@
   .eco-layout { grid-template-columns: 1fr; }
   .eco-board, .eco-detail, .eco-feedback { break-inside: avoid; }
 }
+
+.arch-howto { margin-top: 14px; max-width: 560px; font-size: var(--text-body); color: var(--ink); line-height: 1.6; }
+.arch-glossary { margin: 0 0 28px; padding: 14px 18px; border: 1px solid #d5ddcb; border-radius: 10px; background: #fff; }
+.arch-glossary summary { cursor: pointer; font-size: var(--text-md); font-weight: 500; color: var(--green); }
+.arch-glossary dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px 24px; margin: 16px 0 0; }
+.arch-glossary dt { font-size: var(--text-body); font-weight: 600; color: var(--ink); }
+.arch-glossary dd { margin: 4px 0 0; font-size: var(--text-base); line-height: 1.55; color: var(--muted); }
+.arch-journey-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
+.arch-journey-controls > span:first-child { display: flex; align-items: center; gap: 7px; font-family: var(--font-secondary); color: var(--muted); font-size: var(--text-base); }
+.arch-journey-progress { font-family: var(--font-secondary); font-size: var(--text-sm); color: var(--muted); }
+.arch-journey-play { min-height: 34px; padding: 7px 12px; gap: 6px; }
+/* Journey playback: a line and pointer travel along the top edge of each card in the selected journey. */
+.arch-workflow-steps > li { position: relative; transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+.arch-workflow-steps > li::before { content: ''; position: absolute; top: -1px; left: 11px; width: 0; height: 3px; border-radius: 3px; background: var(--coral-dark); }
+.arch-workflow-steps > li::after { content: ''; position: absolute; top: 0; left: 11px; width: 12px; height: 12px; border: 2px solid #fff; border-radius: 50%; background: var(--coral-dark); box-shadow: 0 0 0 3px rgba(175, 64, 69, .18); transform: translate(-50%, -50%); opacity: 0; pointer-events: none; }
+.arch-workflow-steps > li.is-passed::before { width: calc(100% - 22px); background: var(--green); }
+.arch-workflow-steps > li.is-passed .arch-step-arrow { color: var(--green); }
+.arch-workflow-steps > li.is-current { border-color: var(--coral-dark); box-shadow: 0 10px 24px rgba(26, 75, 63, .12); transform: translateY(-3px); }
+.arch-workflow-steps > li.is-current::before { width: calc(100% - 22px); }
+.arch-workflow-steps > li.is-current::after { left: calc(100% - 11px); opacity: 1; }
+.arch-workflow-steps.is-playing > li.is-current::before { animation: journey-line var(--journey-step) linear both; }
+.arch-workflow-steps.is-playing > li.is-current::after { animation: journey-pointer var(--journey-step) linear both; }
+.arch-workflow-steps.is-playing > li.is-current .arch-step-arrow { animation: journey-nudge .9s ease-in-out infinite; }
+.arch-workflow-steps > li.is-current .arch-step-number { color: var(--coral-dark); font-weight: 600; }
+.arch-workflow-steps > li.is-current .arch-step-arrow { color: var(--coral-dark); }
+.arch-workflow-steps > li.is-current .arch-step-app { color: var(--coral-dark); font-weight: 600; }
+.arch-workflow-steps > li.is-current .arch-step-people button > span { background: var(--green); border-color: var(--green); color: #fff; }
+.arch-workflow-steps > li.is-current .arch-step-people button.is-traveller > span { background: var(--coral-dark); border-color: var(--coral-dark); }
+@keyframes journey-line { from { width: 0; } to { width: calc(100% - 22px); } }
+@keyframes journey-pointer { from { left: 11px; } to { left: calc(100% - 11px); } }
+@keyframes journey-nudge { 50% { transform: translateX(4px); } }
+@media (prefers-reduced-motion: reduce) {
+  .arch-workflow-steps > li { transition: none; }
+  .arch-workflow-steps > li.is-current { transform: none; }
+  .arch-workflow-steps.is-playing > li.is-current::before, .arch-workflow-steps.is-playing > li.is-current::after, .arch-workflow-steps.is-playing > li.is-current .arch-step-arrow { animation: none; }
+}
+@media print { .arch-workflow-steps > li::before, .arch-workflow-steps > li::after, .arch-journey-play, .arch-journey-progress { display: none; } }

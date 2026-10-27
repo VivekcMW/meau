@@ -37,7 +37,7 @@ describe('architecture catalog', () => {
   });
   it('highlights the appropriate actions without equating visibility with authority', () => {
     const campaigns = architectureApps.find(app => app.id === 'campaigns')!;
-    expect(featuresForPersona(campaigns, 'sales').map(feature => feature.label)).toContain('Accept or counter offers; sign owner IOs');
+    expect(featuresForPersona(campaigns, 'sales').map(feature => feature.label)).toContain('Accept or counter offers; sign owner booking contracts');
     expect(featuresForPersona(campaigns, 'sales').map(feature => feature.label)).not.toContain('Budget approval above the configured threshold');
     expect(featuresForPersona(campaigns, 'admin')).toEqual(campaigns.features);
   });

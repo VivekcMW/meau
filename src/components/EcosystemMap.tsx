@@ -46,7 +46,7 @@ export function EcosystemMap({ area, app, persona, onSelectArea, onSelectApp, on
   return <section className="arch-ecosystem" id="architecture-ecosystem" aria-labelledby="ecosystem-title">
     <div className="arch-section-heading">
       <div><span className="arch-kicker">01 / THE ECOSYSTEM</span><h2 id="ecosystem-title">Many specialists. One connected campaign.</h2><p>Select an area to see who connects, what they use and what they share.</p></div>
-      <Badge tone="green"><Network size={13} />5 areas / 1 shared core</Badge>
+      <Badge tone="green"><Network size={13} />5 areas / 1 shared record</Badge>
     </div>
     <div className="eco-layout">
       <div className="eco-board">
