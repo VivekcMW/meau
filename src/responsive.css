@@ -941,7 +941,6 @@
   .share-hero p { font-size: 12px; }
   .share-page > .creative-art { aspect-ratio: 1.4; }
   .share-page > footer { font-size: 11px; line-height: 1.6; }
-  .assistant-panel { width: min(385px, 100vw); }
   .assistant-input input { font-size: 16px; }
   .assistant-disclaimer { font-size: 9px; }
   .assistant-suggestions > button { font-size: 11px; }

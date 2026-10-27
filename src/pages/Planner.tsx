@@ -1,5 +1,5 @@
 import { ArrowRight, Check, ChevronDown, Compass, Leaf, MapPin, Radio, Route, SlidersHorizontal, Sparkles, Target, Zap } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Badge, Button, CreativeArt, MethodBadge, PageHeader, SectionHeading } from '../components/ui';
 import { compact, demoEnd, demoStart, markets, money } from '../domain/config';
@@ -23,6 +23,12 @@ export function PlannerPage() {
   const [details, setDetails] = useState(false);
   const [start, setStart] = useState(demoStart.slice(0, 10));
   const [end, setEnd] = useState(demoEnd.slice(0, 10));
+  useEffect(() => {
+    if (typeof location.state?.prompt === 'string') {
+      setPrompt(location.state.prompt);
+      setOptionsVisible(false);
+    }
+  }, [location.key, location.state?.prompt]);
   const brief: Brief = { name, client: 'Nord Collective', market, environment: segment?.environment, objective, budget: Math.round(Number(budget) * 100), start: `${start}T08:00:00Z`, end: `${end}T08:00:00Z` };
   const draft = w.campaigns.filter(c => c.stage === 'Draft').slice(0, 3);
   function generate() {

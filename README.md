@@ -41,6 +41,16 @@ Use the avatar to preview 15 personas and two media-owner contexts. All apps exp
 - Use the sidebar's **Collapse sidebar / Expand sidebar** control for an icon-only workspace with labelled tooltips. More tools, role switching and Help stay available; mobile keeps its full-label navigation drawer. Selected navigation uses a soft background without a left-side stroke.
 - Counts and delivered audience on Overview cover the full demo flights. No artificial weekly/monthly multiplier is applied.
 
+## Workflow assistant
+
+Open **Workflow assistant** from the sidebar or header. Its desktop drawer is 462px wide (20% wider than the original 385px) and capped to the viewport on mobile.
+
+- Choose tasks, planning, delivery or Direct deals, or ask about the campaign currently open. Follow-up choices change with your answer; **Explain why** and **Show an example** retain the topic.
+- Planning starts with a goal: awareness, store visits or a product launch. Name a city in your reply to change the starting market. At **A2**, an agency planner can carry the brief into Planner for review; **A1** provides guidance without preparing a draft. Brands, business owners and traders stay in their own buying tools.
+- Task handoffs and delivery totals use the same role, owner and market filters as the workspace. Reviewing a campaign explains its next responsible person without executing that person's action.
+- Closing and reopening retains the conversation in the current shell. **Start a new conversation** clears it; changing role, owner or market starts fresh. Conversations are not persisted across refreshes.
+- The drawer supports keyboard navigation, Escape to close and focus restoration. Recommendations use local demo rules, not a live language model. No chat response approves, signs, books, launches or pays.
+
 ## Direct deals
 
 Direct deals is the buyer-direct desk. An agency or brand negotiates directly with media owners in one shared record. Nobody sends emails or spreadsheets back and forth.

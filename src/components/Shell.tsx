@@ -1,17 +1,18 @@
-import { Activity, ArrowRight, ArrowUpRight, BarChart3, Bell, Blocks, Building2, CalendarDays, Check, CheckCheck, ChevronDown, ChevronRight, CircleHelp, Code2, Command, Compass, CreditCard, Globe2, Handshake, Image, LayoutDashboard, Layers, ListTodo, Menu, MessageSquare, MoreHorizontal, Network, PanelLeftClose, PanelLeftOpen, Search, Send, Settings2, ShieldCheck, Sparkles, Target, TrendingUp, Truck, Users, X } from 'lucide-react';
+import { Activity, ArrowUpRight, BarChart3, Bell, Blocks, Building2, CalendarDays, Check, CheckCheck, ChevronDown, ChevronRight, CircleHelp, Code2, Command, Compass, CreditCard, Globe2, Handshake, Image, LayoutDashboard, Layers, ListTodo, Menu, MessageSquare, MoreHorizontal, Network, PanelLeftClose, PanelLeftOpen, Search, Settings2, ShieldCheck, Sparkles, Target, TrendingUp, Truck, Users, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { compact, getPersona, markets, moduleNames, personas } from '../domain/config';
-import { canSeeCampaign, metrics, workspaceTasks } from '../domain/engine';
+import { getPersona, markets, moduleNames, personas } from '../domain/config';
+import { canSeeCampaign, workspaceTasks } from '../domain/engine';
 import { architectureApps } from '../domain/architecture';
 import { frames } from '../domain/fixtures';
 import type { MarketFilter, ModuleId, PersonaId, Workspace } from '../domain/model';
 import { useStore } from '../domain/store';
-import { Badge, BrandMark, IconButton, Modal, SearchField } from './ui';
+import { BrandMark, IconButton, Modal, SearchField } from './ui';
 import { Onboarding, TourHelp } from './Onboarding';
 import { useTourStore } from '../domain/tour-store';
+import { Assistant } from './Assistant';
 
 export const moduleIcons: Record<ModuleId, LucideIcon> = {
   home: LayoutDashboard, planner: Compass, deals: Handshake, campaigns: Layers, inventory: Globe2, marketplace: Building2, measure: Activity,
@@ -43,10 +44,10 @@ export function Shell() {
   const ownerRole = ['sales', 'ops', 'finance', 'reviewer', 'crew', 'yield', 'executive'].includes(w.persona);
   const tenant = ownerRole ? w.owner : persona.tenant;
   useEffect(() => {
-    function onKey(event: KeyboardEvent) { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); if (!useTourStore.getState().chooserOpen && !contextOpen && !appsOpen && !helpOpen && !notificationsOpen && !mobileOpen) setSearchOpen(open => !open); } }
+    function onKey(event: KeyboardEvent) { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); if (!useTourStore.getState().chooserOpen && !contextOpen && !appsOpen && !helpOpen && !notificationsOpen && !mobileOpen && !assistantOpen) setSearchOpen(open => !open); } }
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [contextOpen, appsOpen, helpOpen, notificationsOpen, mobileOpen]);
+  }, [contextOpen, appsOpen, helpOpen, notificationsOpen, mobileOpen, assistantOpen]);
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
   useEffect(() => {
     if (notice?.kind === 'success') { const timer = setTimeout(dismiss, 5500); return () => clearTimeout(timer); }
@@ -110,27 +111,7 @@ export function Shell() {
     <Modal open={searchOpen} onClose={() => { setSearchOpen(false); setQuery(''); }} title="Search workspace"><SearchField value={query} onChange={setQuery} placeholder="Campaign name, location or app" label="Search workspace" /><div className="search-results">{searchResults.length ? searchResults.map(result => <button key={result.url} onClick={() => { navigate(result.url); setSearchOpen(false); setQuery(''); }}><Search size={17} /><span><strong>{result.name}</strong><small>{result.detail}</small></span><ArrowUpRight size={16} /></button>) : <p className="muted">No results. Try a campaign name, location or app.</p>}</div></Modal>
     <Modal open={notificationsOpen} onClose={() => setNotificationsOpen(false)} title="Campaign activity" drawer><div className="timeline">{events.map(event => <button className="timeline-item timeline-button" key={`${event.campaignId}-${event.id}`} onClick={() => { navigate(`/campaigns/${event.campaignId}?tab=activity`); setNotificationsOpen(false); }}><span className="timeline-dot"><CheckCheck size={13} /></span><span><strong>{event.text}</strong><small>{event.campaign} · {event.actor}</small></span></button>)}</div></Modal>
     <Modal open={helpOpen} onClose={() => setHelpOpen(false)} title="Getting started" description="Choose a guided walkthrough, or continue exploring at your own pace."><TourHelp onClose={() => setHelpOpen(false)} /><p className="subtle-note">Payments, AI, serving, verification and tax are simulated. Your work stays in this browser.</p></Modal>
-    {assistantOpen && <Assistant onClose={() => setAssistantOpen(false)} />}
+    <Assistant key={`${w.persona}:${w.owner}:${w.market}`} open={assistantOpen} onClose={() => setAssistantOpen(false)} />
     {createPortal(<div aria-live="polite">{notice && <div className={`toast toast-${notice.kind}`} role={notice.kind === 'error' ? 'alert' : 'status'}><span>{notice.kind === 'error' ? <CircleHelp size={19} /> : <Check size={19} />}</span><p>{notice.message}</p><IconButton label="Dismiss notification" onClick={dismiss}><X size={16} /></IconButton></div>}</div>, document.body)}
   </div>;
-}
-function Assistant({ onClose }: { onClose: () => void }) {
-  const w = useStore(s => s.workspace);
-  const navigate = useNavigate();
-  const persona = getPersona(w.persona);
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<{ who: 'user' | 'assistant'; text: string; link?: string; label?: string }[]>([]);
-  const bottom = useRef<HTMLDivElement>(null);
-  useEffect(() => { bottom.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, [messages]);
-  function ask(text: string) {
-    if (!text.trim()) return;
-    let answer: { text: string; link?: string; label?: string };
-    if (!w.agentEnabled || w.agentLevel === 'A0') answer = { text: 'Your assistant is paused. Enable it in Agent hub to continue.', link: '/agents', label: 'Agent settings' };
-    else if (/plan|campaign|brief/i.test(text)) answer = { text: 'Start with a goal. I will prepare three options from available inventory and the shared price book for you to review.', link: '/planner', label: 'Draft a plan' };
-    else if (/deliver|impression|perform|report/i.test(text)) { const campaigns = w.campaigns.filter(c => canSeeCampaign(w, c)); const total = campaigns.reduce((n, c) => n + metrics(c).delivered, 0); answer = { text: `${compact(total)} demo impressions are verified across ${campaigns.filter(c => c.progress > 0).length} campaigns. Numbers come from your current delivery records.`, link: '/reports', label: 'See the evidence' }; }
-    else if (/task|today|next|approval/i.test(text)) { const tasks = workspaceTasks(w); answer = { text: `${tasks.length} ${tasks.length === 1 ? 'task needs' : 'tasks need'} your attention${tasks[0] ? `, starting with "${tasks[0].name}"` : ' right now'}.`, link: '/tasks', label: 'Open my tasks' }; }
-    else answer = { text: 'This is a local, guided assistant, not a live language model. I can help you draft a plan, find your next task or explain current delivery.' };
-    setMessages(current => [...current, { who: 'user', text }, { who: 'assistant', ...answer }]); setInput('');
-  }
-  return <aside className="assistant-panel" aria-label="AllUnite assistant"><div className="assistant-heading"><span className="assistant-emblem"><Sparkles size={21} /></span><div><h2>Workflow assistant</h2><span>AllUnite assistant <Badge>Demo · {w.agentLevel}</Badge></span></div><IconButton label="Close assistant" onClick={onClose}><X size={18} /></IconButton></div><div className="assistant-conversation"><div className="assistant-intro"><span className="assistant-orb"><Sparkles size={32} /></span><h3>How can I help?<br /></h3><p>Hi {persona.name}. What shall we move forward?</p></div>{messages.map((m, i) => <div key={i} className={`chat-message chat-${m.who}`}>{m.who === 'assistant' && <Sparkles size={14} />}<p>{m.text}</p>{m.link && <button className="text-button" onClick={() => { if (m.link === '/planner' && !persona.nav.includes('planner')) switchContext('planner'); navigate(m.link!); onClose(); }}>{m.label}<ArrowRight size={14} /></button>}</div>)}<div ref={bottom} /></div><div className="assistant-suggestions">{['What needs me today?', 'Help me plan a campaign', 'How is delivery looking?'].map(text => <button key={text} onClick={() => ask(text)}><MessageSquare size={13} />{text}<ArrowUpRight size={13} /></button>)}</div><form className="assistant-input" onSubmit={e => { e.preventDefault(); ask(input); }}><input aria-label="Ask assistant" value={input} onChange={e => setInput(e.target.value)} placeholder="Ask your assistant..." /><IconButton label="Send message" type="submit" disabled={!input.trim()}><Send size={18} /></IconButton></form><p className="assistant-disclaimer">Local recommendations. You stay in control.</p></aside>;
 }
