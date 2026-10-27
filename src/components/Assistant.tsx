@@ -10,7 +10,7 @@ import { Badge, IconButton, Modal } from './ui';
 
 interface Exchange { question: string; reply: AssistantReply }
 
-export function Assistant({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function Assistant({ open, onClose, opener }: { open: boolean; onClose: () => void; opener: { current: HTMLElement | null } }) {
   const w = useStore(s => s.workspace);
   const persona = getPersona(w.persona);
   const location = useLocation();
@@ -20,6 +20,8 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Exchange[]>([]);
   const bottom = useRef<HTMLDivElement>(null);
+  // Radix's own return-focus can miss the opener while it is still inert, so hand focus back to the control that opened the drawer.
+  const returnFocus = (event: Event) => { event.preventDefault(); requestAnimationFrame(() => opener.current?.focus()); };
   const context: AssistantContext = messages.at(-1)?.reply.context ?? { campaignId: currentCampaign?.id };
   const latest = messages.at(-1)?.reply;
   const paused = !w.agentEnabled || w.agentLevel === 'A0';
@@ -43,7 +45,7 @@ export function Assistant({ open, onClose }: { open: boolean; onClose: () => voi
     ...assistantStarters,
   ];
 
-  return <Modal open={open} onClose={onClose} title="Workflow assistant" description="Local guidance, shaped by your answers." drawer className="assistant-panel">
+  return <Modal open={open} onClose={onClose} title="Workflow assistant" description="Local guidance, shaped by your answers." drawer className="assistant-panel" onCloseAutoFocus={returnFocus}>
     <div className="assistant-context">
       <span className="avatar">{persona.initials}</span>
       <div><strong>{persona.name} · {persona.role}</strong><span>{w.market === 'All' ? 'All markets' : markets[w.market].country} · {moduleNames[currentApp] || 'Workspace'}</span></div>

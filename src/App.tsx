@@ -2,7 +2,7 @@ import { Component, Suspense, lazy } from 'react';
 import type { ErrorInfo, ReactNode } from 'react';
 import { HashRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
 import { Shell, modulePath, switchContext } from './components/Shell';
-import { Button, EmptyState } from './components/ui';
+import { Button, EmptyState, PageHeader } from './components/ui';
 import { getPersona, moduleNames, personas } from './domain/config';
 import type { ModuleId } from './domain/model';
 import { useStore } from './domain/store';
@@ -34,7 +34,11 @@ function Guard({ module, children }: { module: ModuleId; children: ReactNode }) 
   const current = getPersona(w.persona);
   if (['home', 'tasks', 'agents'].includes(module) || current.nav.includes(module)) return children;
   const target = personas.find(p => p.id !== 'admin' && p.nav.includes(module)) || getPersona('admin');
-  return <EmptyState title={`${moduleNames[module]} is a different part of the workflow.`} description={`Continue as ${target.name}, your ${target.role.toLowerCase()}, to explore this workspace.`} action={<Button onClick={() => switchContext(target.id)}>Continue as {target.name}</Button>} />;
+  // Keep the page heading so a locked tool reads as intentional rather than as a broken page.
+  return <>
+    <PageHeader title={moduleNames[module]} subtitle={`${current.name} is signed in as ${current.role.toLowerCase()}, and this tool is not part of that role.`} />
+    <EmptyState title={`Preview ${moduleNames[module]} as ${target.name}.`} description={`${target.name} is the ${target.role.toLowerCase()} who uses this tool. Switch roles to explore it, or pick another tool from the sidebar.`} action={<Button onClick={() => switchContext(target.id)}>Continue as {target.name}</Button>} />
+  </>;
 }
 class ErrorBoundary extends Component<{ children: ReactNode; resetKey: string }, { failed: boolean }> {
   state = { failed: false };
