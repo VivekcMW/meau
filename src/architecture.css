@@ -57,7 +57,7 @@
 .eco-physical-world strong { font-weight: 500; }
 .eco-physical-world span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-secondary); }
 .eco-detail.panel { padding: 23px; }
-.eco-detail .arch-kicker { font-size: 9px; letter-spacing: 1px; }
+.eco-detail .arch-kicker { font-size: 10px; letter-spacing: 1px; }
 .eco-detail h3 { font-size: 22px; letter-spacing: -.6px; line-height: 1.4; margin: 15px 0 10px; }
 .eco-detail > p, .eco-example p { font-family: var(--font-secondary); font-size: 13px; color: var(--muted); line-height: 1.6; }
 .eco-detail .eco-status { margin-top: 14px; padding: 10px 12px; border-left: 3px solid #648152; background: #eef3e7; color: var(--green); font-size: 12px; }
@@ -134,7 +134,7 @@
 .arch-shared-surfaces { display: flex; gap: 10px; padding: 16px; background: #eff2e8; border: 1px dashed #94a58a; border-radius: 9px; margin-top: 22px; }
 .arch-shared-surfaces p { font-size: 12px; color: var(--muted); }
 .arch-detail.panel { padding: 22px; position: sticky; top: 102px; max-height: calc(100vh - 125px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
-.arch-detail .arch-kicker { font-size: 9px; letter-spacing: 1px; }
+.arch-detail .arch-kicker { font-size: 10px; letter-spacing: 1px; }
 .arch-focus-icon { display: flex; align-items: center; justify-content: center; width: 49px; height: 49px; margin: 19px 0 15px; background: #edf2e6; color: var(--green); border-radius: 12px; }
 .arch-detail h2 { font-size: 22px; line-height: 1.4; letter-spacing: -.6px; }
 .arch-focus-description { font-size: 13px; color: var(--muted); margin-top: 13px; }
@@ -190,7 +190,7 @@
 .arch-workflow-steps p { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 13px 0 20px; }
 .arch-step-people { display: flex; gap: 9px; flex-wrap: wrap; margin-top: auto; }
 .arch-step-people button { display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-secondary); font-size: 12px; color: var(--ink); }
-.arch-step-people button > span { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #e2e9db; color: #3e5a35; font-size: 9px; border: 1px solid #c3d1b8; }
+.arch-step-people button > span { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #e2e9db; color: #3e5a35; font-size: 10px; border: 1px solid #c3d1b8; }
 .arch-workflow-note { display: flex; align-items: flex-start; gap: 9px; margin-top: 18px; }
 .arch-workflow-note p { color: var(--muted); font-size: 12px; }
 .arch-foundation-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; align-items: stretch; gap: 24px; }
@@ -203,7 +203,7 @@
 .arch-layer-items { display: flex; flex-wrap: wrap; gap: 7px; }
 .arch-layer-items span { background: #f0f4e9; border: 1px solid #d6dfcc; padding: 4px 8px; border-radius: 4px; color: #42543b; font-family: var(--font-secondary); font-size: 11px; }
 .arch-configuration { border: 1px solid #b9caab; border-left: 4px solid #3f6938; padding: 27px; background: #edf2e4; border-radius: 11px; }
-.arch-configuration > .arch-kicker { font-size: 9px; letter-spacing: 1px; margin: 20px 0 14px; }
+.arch-configuration > .arch-kicker { font-size: 10px; letter-spacing: 1px; margin: 20px 0 14px; }
 .arch-configuration > h3 { font-size: 21px; font-weight: 500; line-height: 1.5; letter-spacing: -.5px; }
 .arch-context-parts { display: grid; gap: 17px; margin: 27px 0; }
 .arch-context-parts > div { border-left: 2px solid #9cb58c; padding-left: 13px; }
@@ -375,7 +375,7 @@
 }
 @media (max-width: 359px) {
   .arch-header { padding-left: 12px; padding-right: 12px; gap: 8px; }
-  .arch-return { font-size: 9px; }
+  .arch-return { font-size: 10px; }
   .arch-main { padding-left: 12px; padding-right: 12px; }
   .arch-persona-features, .arch-connected-people, .arch-focus-workflows { grid-template-columns: 1fr; }
 }
@@ -391,7 +391,7 @@
   .arch-footer { padding: 8px 16px; justify-content: space-between; gap: 8px; }
   .arch-footer > span:not(.badge) { display: none; }
   .arch-footer .brand-compact strong { font-size: 16px; }
-  .arch-footer .badge { font-size: 9px; }
+  .arch-footer .badge { font-size: 10px; }
 }
 @media print {
   .architecture-page { height: auto; overflow: visible; }

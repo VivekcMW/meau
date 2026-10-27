@@ -16,21 +16,21 @@
 .app-tile small, .help-steps > div, .preview-nav > div,
 .payment-options label, .checkbox-row, .date-select select { color: var(--muted); }
 .page-heading p { font-size: 12px; }
-.eyebrow, .sidebar-label { font-size: 9px; }
+.eyebrow, .sidebar-label { font-size: 10px; }
 .stat-top { font-size: 11px; }
-.stat-foot { font-size: 9px; }
+.stat-foot { font-size: 10px; }
 .topbar-breadcrumb, .global-search, .market-picker select, .assistant-top { font-size: 11px; }
 .workspace-picker strong, .nav-item, .profile-button strong { font-size: 12px; }
-.workspace-picker small, .profile-button small { font-size: 9px; }
+.workspace-picker small, .profile-button small { font-size: 10px; }
 .assistant-promo strong { font-size: 11px; line-height: 1.5; }
 .assistant-promo p, .assistant-promo button { font-size: 10px; }
 .next-move strong { font-size: 12px; }
 .next-move small { font-size: 10px; }
-.next-move em { font-size: 9px; }
+.next-move em { font-size: 10px; }
 .panel-subtitle { font-size: 11px; }
-.quiet-assurance, .panel-bottom-note, .network-footer, .app-footer { font-size: 9px; }
+.quiet-assurance, .panel-bottom-note, .network-footer, .app-footer { font-size: 10px; }
 .home-campaign-info > strong { font-size: 12px; }
-.home-campaign-info > span, .home-campaign-dates, .home-campaign-metrics > span { font-size: 9px; }
+.home-campaign-info > span, .home-campaign-dates, .home-campaign-metrics > span { font-size: 10px; }
 .quick-brief input { font-size: 11px; }
 .badge, .method, .table-footer, .data-table th { font-size: 10px; }
 .badge-green { color: #3d643b; }
@@ -43,18 +43,18 @@
 .data-table small { font-size: 10px; }
 .data-table td, .data-table strong { font-size: 12px; }
 .frame-title h3 { font-size: 12px; }
-.frame-card-body > p { font-size: 9px; }
+.frame-card-body > p { font-size: 10px; }
 .frame-data strong { font-size: 14px; }
-.frame-data small, .frame-data .method { font-size: 9px; }
-.frame-card-footer .badge, .frame-card-footer .button { font-size: 9px; }
-.frame-picture-button > .badge { font-size: 8px; color: #536545; }
-.frame-card .scene-board .art-small > strong { font-size: clamp(12px, 1.5vw, 23px); }
+.frame-data small, .frame-data .method { font-size: 10px; }
+.frame-card-footer .badge, .frame-card-footer .button { font-size: 10px; }
+.frame-picture-button > .badge { font-size: 10px; color: #536545; }
+.frame-card .scene-board .art-small > strong { font-size: clamp(10px, .95vw, 15px); }
 .frame-card .scene-board .art-small .art-brand { font-size: 6px; }
 .stat-top .icon-button, .topbar-actions .icon-button, .nav-item > svg { color: #738568; }
 .chart-label { fill: var(--muted); }
 .assistant-suggestions > button { color: #637b4f; }
 .world-pin-label, .world-pin-label small { color: #61754e; }
-.home-campaign-dates .badge { font-size: 8px; }
+.home-campaign-dates .badge { font-size: 10px; }
 .asset-error { color: #a34836; }
 .scene-label, .map-credit { font-size: 7px; }
 .table-toolbar .tabs { min-width: 0; }
@@ -64,7 +64,7 @@
 .frame-data > span { min-width: 0; }
 .invoice-header .brand strong > span { color: var(--coral-dark); }
 .next-action-banner p { color: #65794f; font-size: 11px; }
-.next-action-banner .eyebrow { color: #637b4d; font-size: 8px; }
+.next-action-banner .eyebrow { color: #637b4d; font-size: 10px; }
 .option-metrics span, .option-price small, .plan-option > p { color: #6e7d5f; }
 .art-caption { color: inherit; }
 .brand strong > span { color: var(--coral-dark); }
@@ -77,7 +77,7 @@
 .market-flags span:nth-child(4) { color: #455b80; }
 .market-flags span:last-child { color: #5e6e4c; }
 .next-moves-panel .section-heading .badge { color: #626d58; font-size: 10px; }
-.chart-compact .chart-legend small { color: #627156; font-size: 9px; opacity: 1; }
+.chart-compact .chart-legend small { color: #627156; font-size: 10px; opacity: 1; }
 .table-scroll { position: relative; }
 .planner-hero h2 em { color: var(--green); }
 .brief-inline-settings, .brief-inline-settings select, .brief-inline-settings button,
@@ -139,7 +139,7 @@
   .page-content { padding: 29px 25px; }
   .home-primary-grid, .home-secondary-grid { grid-template-columns: minmax(0, 1.8fr) minmax(275px, 1fr); gap: 17px; }
   .network-heading { padding: 21px 20px 5px; flex-wrap: wrap; }
-  .network-heading .badge { font-size: 8px; }
+  .network-heading .badge { font-size: 10px; }
   .stat-grid { gap: 13px; }
   .stat-card { padding: 15px 15px 13px; }
   .sparkline { width: 70px; }
@@ -180,7 +180,7 @@
   .stat-top { font-size: 10px; }
   .sparkline { width: 57px; }
   .stat-body strong { font-size: 25px; }
-  .stat-foot { font-size: 8px; }
+  .stat-foot { font-size: 10px; }
   .plan-options { gap: 14px; }
   .plan-option { padding: 20px 17px; }
   .plan-option h3 { font-size: 18px; }
@@ -204,13 +204,13 @@
   .invoice-summary > p { grid-column: 1 / -1; }
   .field-layout { grid-template-columns: 1.2fr 1fr; gap: 17px; }
   .field-job { padding: 16px 12px; gap: 10px; }
-  .field-job .badge { font-size: 8px; }
+  .field-job .badge { font-size: 10px; }
   .field-summary { gap: 20px; padding: 22px; }
   .field-summary > .badge { display: none; }
   .trading-grid, .report-grid, .measure-grid { grid-template-columns: 1.5fr 1fr; gap: 17px; }
   .agent-hero { gap: 25px; padding: 29px; }
   .agent-orb { width: 88px; height: 88px; margin: 10px; }
-  .agent-safety { gap: 17px; max-width: 140px; font-size: 9px; }
+  .agent-safety { gap: 17px; max-width: 140px; font-size: 10px; }
   .agent-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .integration-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .audience-studio-grid { grid-template-columns: 1fr 1.5fr; gap: 17px; }
@@ -233,14 +233,14 @@
   .nav-item { font-size: 11px; gap: 10px; }
   .page-content { padding: 25px 21px; }
   .topbar { padding: 0 21px; }
-  .topbar-breadcrumb { font-size: 9px; }
+  .topbar-breadcrumb { font-size: 10px; }
   .assistant-top span { display: none; }
   .assistant-top { padding: 8px; }
   .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat-card { padding: 18px; }
   .stat-top { font-size: 11px; }
   .stat-body strong { font-size: 29px; }
-  .stat-foot { font-size: 9px; }
+  .stat-foot { font-size: 10px; }
   .sparkline { width: 86px; }
   .home-primary-grid { grid-template-columns: 1fr; }
   .world-map { height: 300px; }
@@ -262,7 +262,7 @@
   .inventory-split { grid-template-columns: minmax(245px, .8fr) minmax(0, 1fr); gap: 14px; }
   .inventory-toolbar .search-field { flex-basis: 100%; }
   .inventory-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .map-bottom-card strong { font-size: 9px; }
+  .map-bottom-card strong { font-size: 10px; }
   .map-bottom-card > span:last-child { display: none; }
   .inventory-results .frame-data .method { display: none; }
   .inventory-summary > span { display: none; }
@@ -368,17 +368,17 @@
   .inventory-map-wrap { position: static; height: 355px; }
   .inventory-map { min-height: 290px; }
   .map-bottom-card { padding: 13px 16px; }
-  .map-bottom-card > span:last-child { display: inline; font-size: 9px; }
+  .map-bottom-card > span:last-child { display: inline; font-size: 10px; }
   .inventory-results { display: grid; grid-template-columns: 1fr 1fr; max-height: none; padding-right: 0; gap: 14px; overflow: visible; }
   .inventory-results .frame-picture-button .frame-scene { aspect-ratio: 1.7; }
   .inventory-results .frame-card-body { padding: 14px 12px 4px; }
   .frame-title h3 { font-size: 12px; }
   .frame-data { flex-wrap: wrap; }
-  .frame-card-footer .button { font-size: 9px; padding: 7px 0; min-height: 36px; }
-  .frame-card-footer .badge { font-size: 8px; }
+  .frame-card-footer .button { font-size: 10px; padding: 7px 0; min-height: 36px; }
+  .frame-card-footer .badge { font-size: 10px; }
   .inventory-list .frame-title h3 { font-size: 12px; }
   .inventory-results .frame-data small { display: block; }
-  .inventory-results .frame-data .method { display: inline-flex; font-size: 8px; }
+  .inventory-results .frame-data .method { display: inline-flex; font-size: 10px; }
   .marketplace-intro { gap: 23px; padding: 23px; }
   .marketplace-intro h2 { font-size: 27px; }
   .marketplace-intro .floating-label { display: none; }
@@ -418,7 +418,7 @@
   .data-table strong { font-size: 12px; }
   .data-table small { font-size: 10px; }
   .data-table td { padding: 17px 14px; }
-  .data-table .method { font-size: 9px; }
+  .data-table .method { font-size: 10px; }
   .table-footer { line-height: 1.6; font-size: 10px; }
   .table-footer > span:last-child { text-align: right; }
   .next-action-banner .button { margin-left: 56px; font-size: 12px; }
@@ -438,7 +438,7 @@
   .owner-offer p { font-size: 10px; }
   .proof-card h3 { font-size: 13px; }
   .proof-card p { font-size: 11px; }
-  .proof-card small { font-size: 9px; }
+  .proof-card small { font-size: 10px; }
   .timeline-item strong { font-size: 13px; }
   .timeline-item small { font-size: 11px; }
   .schedule-dates { flex-wrap: wrap; }
@@ -479,7 +479,7 @@
   .agent-card { padding: 22px 18px; }
   .agent-card h3 { font-size: 14px; }
   .agent-card p { font-size: 12px; }
-  .agent-card > .badge:nth-child(2) { font-size: 9px; }
+  .agent-card > .badge:nth-child(2) { font-size: 10px; }
   .agent-hero h2 { font-size: 34px; }
   .agent-hero p { font-size: 12px; }
   .agent-hero { padding: 27px; gap: 30px; }
@@ -502,8 +502,8 @@
   .developer-banner p { font-size: 11px; }
   .integration-card h3 { font-size: 17px; }
   .integration-card p { font-size: 11px; }
-  .integration-card > .badge { font-size: 8px; }
-  .app-footer { padding: 10px 20px 20px; font-size: 9px; }
+  .integration-card > .badge { font-size: 10px; }
+  .app-footer { padding: 10px 20px 20px; font-size: 10px; }
   .toast { left: 50%; bottom: 20px; width: max-content; max-width: calc(100vw - 26px); }
   .modal-heading { padding: 23px; }
   .modal-body { padding: 23px; }
@@ -517,7 +517,7 @@
   .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .app-tile { padding: 16px 12px; }
   .app-tile strong { font-size: 11px; }
-  .app-tile small { font-size: 9px; }
+  .app-tile small { font-size: 10px; }
   .mobile-nav-content { display: flex; flex-direction: column; min-height: 600px; padding: 0 0 10px; }
   .mobile-nav-content .sidebar-brand { padding-top: 0; }
   .mobile-nav-content .workspace-picker strong, .mobile-nav-content .nav-item { font-size: 14px; }
@@ -534,7 +534,7 @@
   .input { font-size: 16px; }
   .modal .input, .modal textarea { font-size: 16px; }
   .share-page { padding: 25px; }
-  .share-page > header > .badge { font-size: 9px; }
+  .share-page > header > .badge { font-size: 10px; }
   .share-page > .creative-art { aspect-ratio: 2; padding: 25px; }
 }
 @media (max-width: 540px) {
@@ -549,27 +549,27 @@
   .topbar-left .icon-button { min-width: 28px; padding: 4px; }
   .page-content { padding: 23px 16px; }
   .page-heading h1 { font-size: 27px; letter-spacing: -1px; line-height: 1.23; }
-  .page-heading .eyebrow { font-size: 8px; letter-spacing: 1.5px; }
+  .page-heading .eyebrow { font-size: 10px; letter-spacing: 1.5px; }
   .page-heading p { font-size: 11px; }
   .stat-card { padding: 15px 13px; }
   .stat-top { font-size: 10px; }
   .stat-body { min-height: 37px; }
   .stat-body strong { font-size: 27px; }
   .sparkline { width: 45px; height: 34px; }
-  .stat-foot { font-size: 9px; min-height: 26px; align-items: flex-start; }
+  .stat-foot { font-size: 10px; min-height: 26px; align-items: flex-start; }
   .three-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .three-stats > .stat-card:last-child { grid-column: 1 / -1; }
   .three-stats > .stat-card:last-child .stat-body { display: inline-flex; margin-right: 20px; }
   .three-stats > .stat-card:last-child .stat-foot { display: inline-flex; min-height: 0; vertical-align: middle; }
   .network-heading { padding: 21px 18px 5px; gap: 9px; flex-wrap: wrap; }
   .network-heading h2 { font-size: 16px; }
-  .network-heading .badge { font-size: 8px; }
+  .network-heading .badge { font-size: 10px; }
   .world-map { height: 218px; }
-  .network-footer { padding: 13px 16px; gap: 8px; flex-wrap: wrap; font-size: 8px; }
-  .network-footer > .text-button { font-size: 9px; }
+  .network-footer { padding: 13px 16px; gap: 8px; flex-wrap: wrap; font-size: 10px; }
+  .network-footer > .text-button { font-size: 10px; }
   .market-flags span { width: 20px; height: 20px; font-size: 5px; }
-  .world-pin-label { font-size: 8px; }
-  .world-pin-label small { font-size: 7px; }
+  .world-pin-label { font-size: 10px; }
+  .world-pin-label small { font-size: 10px; }
   .next-moves-panel { padding: 22px 18px 18px; }
   .next-moves-panel .next-moves { display: flex; flex-direction: column; gap: 0; margin-bottom: 8px; }
   .next-move { border-bottom: 1px solid #edf1e4; padding: 17px 0; gap: 13px; }
@@ -577,7 +577,7 @@
   .next-move > svg { display: inline-block; width: 15px; }
   .next-move strong { font-size: 13px; margin-bottom: 5px; }
   .next-move small { font-size: 11px; }
-  .next-move em { font-size: 9px; }
+  .next-move em { font-size: 10px; }
   .next-moves-panel > .text-button { margin-top: 6px; font-size: 11px; }
   .quick-brief { flex-wrap: wrap; padding: 21px 18px; margin: 21px 0; gap: 12px; }
   .quick-brief-icon { width: 38px; height: 38px; }
@@ -589,51 +589,52 @@
   .campaign-overview .section-heading { gap: 9px; }
   .campaign-overview .section-heading h2 { font-size: 16px; }
   .section-heading p { font-size: 10px; }
-  .section-heading .text-button { font-size: 9px; }
+  .section-heading .text-button { font-size: 10px; }
   .home-campaign { gap: 10px; padding: 18px 0; }
   .home-campaign > .creative-art { width: 46px; height: 53px; }
   .home-campaign-info > strong { font-size: 11px; }
-  .home-campaign-info > span { font-size: 8px; flex-wrap: wrap; gap: 3px; }
-  .home-campaign-dates { gap: 6px; font-size: 8px; }
-  .home-campaign-dates .badge { font-size: 7px; }
+  .home-campaign-info > span { font-size: 10px; flex-wrap: wrap; gap: 3px; }
+  .home-campaign-dates { gap: 6px; font-size: 10px; }
+  .home-campaign-dates .badge { font-size: 10px; }
   .home-campaign-metrics { width: 69px; margin: 0; }
   .home-campaign-metrics strong { font-size: 14px; }
-  .home-campaign-metrics > span { font-size: 7px; }
+  .home-campaign-metrics > span { font-size: 10px; }
   .home-campaign > svg { display: none; }
-  .panel-bottom-note { font-size: 8px; gap: 5px; }
-  .panel-bottom-note .method { font-size: 8px; }
+  .panel-bottom-note { font-size: 10px; gap: 5px; }
+  .panel-bottom-note .method { font-size: 10px; }
   .performance-panel { display: block; padding: 22px 20px; }
   .performance-panel .delivery-chart { margin: 22px 0; }
   .performance-number { font-size: 33px; }
   .performance-number > span { font-size: 10px; }
-  .chart-legend { font-size: 9px; flex-wrap: wrap; gap: 9px; }
-  .chart-legend small { font-size: 8px; }
-  .chart-compact .chart-legend { font-size: 9px; }
-  .chart-compact .chart-legend small { font-size: 8px; }
+  .chart-legend { font-size: 10px; flex-wrap: wrap; gap: 9px; }
+  .chart-legend small { font-size: 10px; }
+  .chart-compact .chart-legend { font-size: 10px; }
+  .chart-compact .chart-legend small { font-size: 10px; }
   .chart-compact .chart-label { font-size: 10px; }
   .performance-panel > .text-button { font-size: 11px; }
   .panel { padding: 21px 17px; border-radius: 11px; }
   .network-panel, .plan-map-panel, .creative-card { padding: 0; }
-  .inventory-toolbar .select-pill { gap: 4px; padding: 10px 7px; flex: 1; min-width: 0; }
-  .inventory-toolbar .select-pill > svg { width: 12px; }
-  .inventory-toolbar .select-pill select { width: 100%; font-size: 10px; }
-  .inventory-toolbar .select-pill:nth-of-type(3) { flex-basis: 65%; }
-  .view-switch { padding: 4px; }
+  .inventory-toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .inventory-toolbar > .search-field, .inventory-toolbar .select-pill:nth-of-type(3) { grid-column: 1 / -1; }
+  .inventory-toolbar .select-pill { gap: 4px; padding: 10px 9px; min-width: 0; }
+  .inventory-toolbar .select-pill > svg { width: 12px; flex-shrink: 0; }
+  .inventory-toolbar .select-pill select { width: 100%; min-width: 0; text-overflow: ellipsis; font-size: 11px; }
+  .view-switch { padding: 4px; justify-self: start; }
   .inventory-summary { font-size: 11px; margin-top: 18px; }
   .inventory-summary strong > span { display: block; margin-top: 4px; }
   .inventory-results { gap: 11px; }
   .inventory-results .frame-card-body, .inventory-list .frame-card-body { padding: 12px 9px 3px; }
   .frame-title h3, .inventory-list .frame-title h3 { font-size: 11px; }
   .frame-title > svg { display: none; }
-  .frame-card-body > p, .inventory-list .frame-card-body > p { font-size: 8px; flex-wrap: wrap; }
+  .frame-card-body > p, .inventory-list .frame-card-body > p { font-size: 10px; flex-wrap: wrap; }
   .frame-data { gap: 10px 4px; margin-top: 12px; }
   .frame-data strong, .inventory-list .frame-data strong { font-size: 12px; }
-  .frame-data small, .inventory-list .frame-data small { font-size: 7px; }
+  .frame-data small, .inventory-list .frame-data small { font-size: 10px; }
   .frame-data .method, .inventory-list .frame-data .method, .inventory-results .frame-data .method { display: none; }
   .frame-card-footer { flex-wrap: wrap; margin-top: 12px; padding: 8px 0 2px; }
-  .frame-card-footer .badge { font-size: 7px; }
-  .frame-card-footer .button { font-size: 9px; margin-left: auto; }
-  .frame-picture-button > .badge, .inventory-list .frame-picture-button > .badge { font-size: 6px; padding: 3px 4px; bottom: 7px; left: 7px; }
+  .frame-card-footer .badge { font-size: 10px; }
+  .frame-card-footer .button { font-size: 10px; margin-left: auto; }
+  .frame-picture-button > .badge, .inventory-list .frame-picture-button > .badge { font-size: 10px; padding: 3px 4px; bottom: 7px; left: 7px; }
   .frame-card .save-frame { min-width: 24px; min-height: 24px; top: 6px; right: 6px; }
   .frame-card .save-frame > svg { width: 12px; }
   .frame-card .scene-board { border-width: 2px; }
@@ -643,7 +644,7 @@
   .frame-card .scene-label { display: none; }
   .inventory-card-grid { gap: 12px; }
   .map-city { font-size: 11px; }
-  .map-legend { font-size: 9px; }
+  .map-legend { font-size: 10px; }
   .map-credit { font-size: 6px; max-width: calc(100% - 20px); text-align: right; line-height: 1.6; }
   .marketplace-intro { display: flex; flex-direction: column; padding: 25px; }
   .marketplace-intro > div:first-child { align-self: stretch; }
@@ -655,11 +656,11 @@
   .marketplace-illustration .scene-board .art-small > strong { font-size: 22px; }
   .planner-hero { padding: 22px 19px 0; border-radius: 12px; }
   .planner-hero h2 { font-size: 34px; margin: 25px 0 23px; }
-  .planner-hero-top > .badge { font-size: 8px; max-width: 170px; white-space: normal; line-height: 1.6; }
+  .planner-hero-top > .badge { font-size: 10px; max-width: 170px; white-space: normal; line-height: 1.6; }
   .planner-emblem { width: 42px; height: 42px; }
   .brief-composer textarea { padding: 18px 16px 0; min-height: 135px; font-size: 16px; }
   .brief-composer-footer { padding: 14px; flex-direction: column; align-items: stretch; gap: 13px; }
-  .brief-composer-footer > span { font-size: 9px; }
+  .brief-composer-footer > span { font-size: 10px; }
   .brief-composer-footer .button { width: 100%; font-size: 12px; }
   .suggestion-chips { gap: 7px; margin: 15px 0 20px; }
   .suggestion-chips button { font-size: 10px; padding: 9px 10px; }
@@ -678,7 +679,7 @@
   .option-price span { font-size: 27px; }
   .option-metrics strong { font-size: 27px; }
   .option-metrics span { font-size: 10px; }
-  .recommended-label { font-size: 9px; }
+  .recommended-label { font-size: 10px; }
   .draft-grid { grid-template-columns: 1fr; }
   .draft-card > .creative-art { width: 70px; height: 84px; }
   .draft-card > svg { display: inline; }
@@ -703,18 +704,18 @@
   .search-field input { font-size: 16px; }
   .table-scroll { max-width: 100%; }
   .data-table th, .data-table td { padding-right: 12px; padding-left: 12px; }
-  .table-footer { align-items: flex-start; font-size: 9px; }
+  .table-footer { align-items: flex-start; font-size: 10px; }
   .table-footer > span:last-child { max-width: 53%; }
   .back-link { font-size: 10px; }
   .journey-stepper { gap: 3px; align-items: flex-start; }
   .journey-stepper > div { flex: 1; flex-direction: column; gap: 7px; position: relative; }
   .journey-stepper > div:last-child { flex: 1; }
-  .journey-stepper > div > strong { font-size: 9px; }
+  .journey-stepper > div > strong { font-size: 10px; }
   .journey-stepper i { position: absolute; height: 1px; top: 12px; width: calc(100% - 20px); right: -50%; margin: 0 10px 0 0; }
   .journey-stepper > div > span { z-index: 1; width: 25px; height: 25px; }
   .next-action-banner { gap: 13px; padding: 21px 17px; }
   .next-action-banner > div { flex: 1; min-width: 0; }
-  .next-action-banner .eyebrow { font-size: 8px; letter-spacing: 1px; }
+  .next-action-banner .eyebrow { font-size: 10px; letter-spacing: 1px; }
   .next-action-banner h3 { font-size: 15px; }
   .next-action-banner p { font-size: 11px; line-height: 1.6; }
   .next-action-icon { width: 35px; height: 35px; border-radius: 9px; align-self: flex-start; }
@@ -733,7 +734,7 @@
   .mini-people p { font-size: 11px; }
   .plan-map-panel > .section-heading { padding: 19px 17px; }
   .plan-map-panel .section-heading h2 { font-size: 15px; }
-  .plan-map-panel .section-heading .badge { font-size: 8px; }
+  .plan-map-panel .section-heading .badge { font-size: 10px; }
   .plan-map-panel > .inventory-map { min-height: 345px; height: 345px; }
   .plan-summary h2 { font-size: 24px; }
   .plan-option-buttons button { padding: 12px 7px; font-size: 11px; }
@@ -768,7 +769,7 @@
   .creative-card-footer .button { font-size: 12px; min-height: 41px; }
   .schedule-dates > div { gap: 3px; }
   .schedule-dates button { min-width: 0; flex: 1; padding: 10px 6px; }
-  .schedule-dates button > span { font-size: 9px; }
+  .schedule-dates button > span { font-size: 10px; }
   .schedule-dates button > strong { font-size: 14px; }
   .launch-item > div:nth-child(2) { min-width: 145px; }
   .launch-item > .button { margin-left: 0; width: 100%; }
@@ -783,7 +784,7 @@
   .field-job h3 { font-size: 14px; }
   .field-job > div:last-child { width: 100%; flex-direction: row; margin-left: 39px; justify-content: space-between; gap: 9px; }
   .field-job p { font-size: 10px; }
-  .job-meta { font-size: 9px; gap: 5px; }
+  .job-meta { font-size: 10px; gap: 5px; }
   .field-map .inventory-map { min-height: 315px; height: 315px; }
   .finance-nudge > .button { margin-left: 0; width: 100%; }
   .finance-nudge > div { min-width: 150px; }
@@ -795,7 +796,7 @@
   .trading-insight h2 { font-size: 28px; }
   .trading-insight .priority-list { display: flex; flex-direction: column; }
   .priority-list > div { font-size: 12px; padding: 11px 0; }
-  .priority-list .badge { font-size: 9px; }
+  .priority-list .badge { font-size: 10px; }
   .supply-path { grid-template-columns: 1fr 1fr; gap: 30px 15px; }
   .supply-path > div > svg { right: -15px; }
   .supply-path > div:nth-child(2) > svg { display: none; }
@@ -834,7 +835,7 @@
   .attribution-banner > span { width: 55px; height: 55px; box-shadow: 0 0 0 8px #e9efdb; margin: 5px 0; }
   .attribution-banner > span > svg { width: 28px; }
   .attribution-banner h2 { font-size: 25px; }
-  .attribution-banner .badge { font-size: 9px; }
+  .attribution-banner .badge { font-size: 10px; }
   .attribution-banner > div { min-width: 190px; }
   .task-list-item > div { min-width: 160px; }
   .task-list-item > .button { margin-left: 0; width: 100%; }
@@ -847,10 +848,10 @@
   .agent-hero h2 { font-size: 28px; }
   .agent-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .agent-card { padding: 20px 14px; }
-  .agent-card > .badge:nth-child(2) { right: 10px; top: 24px; font-size: 7px; padding: 3px 4px; }
+  .agent-card > .badge:nth-child(2) { right: 10px; top: 24px; font-size: 10px; padding: 3px 4px; }
   .agent-card h3 { font-size: 13px; }
   .agent-card p { font-size: 10px; }
-  .agent-card > .badge:last-child { font-size: 8px; white-space: normal; }
+  .agent-card > .badge:last-child { font-size: 10px; white-space: normal; }
   .autonomy-options { gap: 9px; }
   .autonomy-options button { padding: 14px 11px; }
   .autonomy-options button strong { font-size: 24px; }
@@ -862,14 +863,14 @@
   .market-pack-list > button { padding: 15px 10px; gap: 14px; }
   .market-pack-list h3 { font-size: 14px; }
   .market-pack-list p { font-size: 11px; }
-  .market-pack-list .badge { display: inline-flex; font-size: 8px; }
+  .market-pack-list .badge { display: inline-flex; font-size: 10px; }
   .market-config { padding: 25px 20px; }
   .market-config h2 { font-size: 30px; }
   .admin-persona-grid { grid-template-columns: 1fr; }
   .persona-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; max-height: 360px; }
   .persona-list > button { padding: 12px 9px; }
   .persona-list strong { font-size: 12px; }
-  .persona-list small { font-size: 9px; }
+  .persona-list small { font-size: 10px; }
   .persona-preview h2 { font-size: 27px; }
   .preview-nav > div { padding: 13px 0; font-size: 13px; }
   .policy-row .field-label { max-width: none; }
@@ -881,14 +882,14 @@
   .developer-banner p { font-size: 11px; }
   .integration-grid { grid-template-columns: 1fr; gap: 16px; }
   .integration-card { padding: 25px 22px; }
-  .integration-card > .badge { font-size: 9px; }
+  .integration-card > .badge { font-size: 10px; }
   .integration-card > .text-button { font-size: 12px; }
   .code-block { font-size: 11px; padding: 18px; }
   .sandbox { padding: 30px 21px; }
   .sandbox h2 { font-size: 24px; }
   .sandbox-results { padding: 15px; }
   .sandbox-results > div { font-size: 10px; }
-  .app-footer { padding: 7px 17px 22px; font-size: 8px; flex-wrap: wrap; gap: 12px; }
+  .app-footer { padding: 7px 17px 22px; font-size: 10px; flex-wrap: wrap; gap: 12px; }
   .app-footer > span:last-child { display: none; }
   .toast { padding: 13px 11px 13px 14px; gap: 10px; }
   .toast p { font-size: 12px; }
@@ -902,14 +903,14 @@
   .frame-detail-price strong { font-size: 25px; }
   .frame-detail-price span { font-size: 10px; }
   .frame-detail-tags { gap: 7px; flex-wrap: wrap; }
-  .frame-detail-tags .badge, .frame-detail-tags .method { font-size: 9px; }
+  .frame-detail-tags .badge, .frame-detail-tags .method { font-size: 10px; }
   .drawer-footer { margin-top: 22px; padding-bottom: max(0px, env(safe-area-inset-bottom)); }
   .drawer-footer > .button { white-space: normal; }
   .persona-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
   .persona-option { padding: 12px 8px; gap: 8px; }
   .persona-option .avatar { width: 29px; height: 29px; font-size: 9px; }
   .persona-option strong { font-size: 11px; }
-  .persona-option small { font-size: 8px; }
+  .persona-option small { font-size: 10px; }
   .persona-option > svg { width: 11px; }
   .app-grid { grid-template-columns: 1fr 1fr; gap: 11px; }
   .app-tile { padding: 18px 13px; }
@@ -934,7 +935,7 @@
   .pick-frames-list small { font-size: 10px; line-height: 1.6; }
   .share-page { padding: 23px 17px; }
   .share-page > header { gap: 12px; }
-  .share-page > header > .badge { max-width: 105px; white-space: normal; font-size: 9px; }
+  .share-page > header > .badge { max-width: 105px; white-space: normal; font-size: 10px; }
   .share-page .brand strong { font-size: 23px; }
   .share-page .brand strong > span { font-size: 12px; }
   .share-hero { padding: 40px 0 25px; }
@@ -942,7 +943,7 @@
   .share-page > .creative-art { aspect-ratio: 1.4; }
   .share-page > footer { font-size: 11px; line-height: 1.6; }
   .assistant-input input { font-size: 16px; }
-  .assistant-disclaimer { font-size: 9px; }
+  .assistant-disclaimer { font-size: 10px; }
   .assistant-suggestions > button { font-size: 11px; }
 }
 @media (max-width: 359px) {
@@ -956,26 +957,26 @@
   .quick-brief-icon { width: 32px; height: 32px; }
   .quick-brief-icon svg { width: 19px; }
   .home-campaign-metrics { width: 58px; }
-  .home-campaign-metrics > span { font-size: 6px; }
+  .home-campaign-metrics > span { font-size: 10px; }
   .home-campaign-info > strong { font-size: 10px; }
-  .home-campaign-info > span { font-size: 7px; }
+  .home-campaign-info > span { font-size: 10px; }
   .frame-data { flex-direction: column; gap: 9px; }
   .frame-data > span:last-child { text-align: left; }
   .frame-card-footer .button { width: 100%; justify-content: space-between; }
-  .frame-card-footer .badge { font-size: 8px; }
+  .frame-card-footer .badge { font-size: 10px; }
   .frame-card .scene-board .art-small > strong { font-size: 11px; }
   .planner-hero h2 { font-size: 31px; }
-  .suggestion-chips button { font-size: 9px; }
+  .suggestion-chips button { font-size: 10px; }
   .next-action-banner > div { min-width: 180px; }
   .plan-option { gap: 10px 15px; padding: 21px 17px; }
   .plan-option h3 { font-size: 17px; }
   .agent-grid { grid-template-columns: 1fr; }
   .agent-card h3 { font-size: 17px; }
   .agent-card p { font-size: 12px; }
-  .agent-card > .badge:nth-child(2) { font-size: 9px; }
+  .agent-card > .badge:nth-child(2) { font-size: 10px; }
   .persona-option { gap: 6px; }
   .persona-option .avatar { width: 23px; height: 23px; font-size: 8px; }
-  .persona-option small { font-size: 8px; }
+  .persona-option small { font-size: 10px; }
   .persona-option > svg { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
